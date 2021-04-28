@@ -1,0 +1,51 @@
+  // const [firstCard, setFirstCard] = useState(null);
+  // const [secondCard, setSecondCard] = useState(null);
+
+  // function shuffle(array) {
+  //   for (let i = array.length - 1; i > 0; i--) {
+  //     let j = Math.floor(Math.random() * 12);
+  //     [array[i], array[j]] = [array[j], array[i]];
+  //   }
+  // }
+
+  // const resetBoard = () => {
+  //   setFirstCard(null);
+  //   setSecondCard(null);
+  // };
+
+  // const flip = (e, card) => {
+  //   // e.currentTarget.classList.add("flip");
+
+
+
+  //   if (!firstCard) {
+  //     setFirstCard(card.id);
+  //     return;
+  //   } else {
+  //     setSecondCard(card.id);
+  //     checkDifference(firstCard ===  secondCard);
+  //   }
+  // };
+  // console.log(11111, firstCard, secondCard);
+  // // console.log(firstCard);
+  // // console.log(1, firstCard);
+  // // console.log(2, secondCard);
+
+  // const checkDifference = (isMatch) => {
+  //   console.log(isMatch);
+  //   isMatch ? disableCards() : unFlip();
+  // };
+
+  // const unFlip = () => {
+  //   let flipped = document.getElementsByClassName("card flip");
+  //   setTimeout(() => {
+  //     flipped[1].classList.remove("flip");
+  //     flipped[0].classList.remove("flip");
+  //     resetBoard();
+  //   }, 700);
+  // };
+
+  // const disableCards = () => {
+  //   resetBoard();
+  // };
+
