@@ -2,19 +2,21 @@ import "./App.scss";
 import { CARDS_LIST } from "./components/cards-list";
 import { useEffect, useState } from "react";
 import { Results } from "./components/results";
+import { Card } from "./components/card/card";
 
 function App() {
   const [flippedArr, setFlippedArr] = useState([]);
   const [guessedCards, setGuessedCards] = useState([]);
-  const [newArray, setnewArray] = useState([]);
+  const [newArray, setNewArray] = useState([]);
   const [gamePeriod, setGamePeriod] = useState("start");
   const [endDate, setEndDate] = useState(0);
   const [steps, setSteps] = useState(0);
+
   let lockBoard = false;
 
   useEffect(() => {
     var copy = [].concat(CARDS_LIST);
-    setnewArray(
+    setNewArray(
       copy.sort(function () {
         return 0.5 - Math.random();
       })
@@ -33,19 +35,19 @@ function App() {
 
   const flip = (index, name) => {
     if (lockBoard) return;
-    if(gamePeriod !== 'started') return;
+    if (gamePeriod !== "started") return;
     setSteps(steps + 1);
     setFlippedArr((prevState) => [...prevState, { index: index, name: name }]);
   };
 
   const checkDifference = () => {
-    let c = flippedArr.filter((obj) => obj);
+    let oneFlipped = flippedArr.filter((obj) => obj);
 
-    c[0].name === c[1].name ? disableCards(c) : unFlip();
+    oneFlipped[0].name === oneFlipped[1].name ? disableCards(oneFlipped) : unFlip();
   };
 
-  const disableCards = (obj) => {
-    setGuessedCards((prevState) => [...prevState, obj]);
+  const disableCards = (oneFlipped) => {
+    setGuessedCards((prevState) => [...prevState, oneFlipped]);
     lockBoard = false;
     setFlippedArr([]);
   };
@@ -65,7 +67,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className="main-block">
         <Results
           endDate={endDate}
           guessedCards={guessedCards}
@@ -75,18 +77,7 @@ function App() {
         />
         <div className="card-list">
           {newArray.map((card, index) => (
-            <div
-              key={index}
-              className={
-                flippedArr.some((a) => a.index === index) || guessedCards.flat().find((a) => a.index === index)
-                  ? "card flip"
-                  : "card"
-              }
-              onClick={(e) => flip(index, card.id)}
-            >
-              <div className="back-face"></div>
-              <img className="front-face" alt="img" src={`http://placekitten.com/200/300?image=${card.img}`}></img>
-            </div>
+            <Card card={card} index={index} guessedCards={guessedCards} flippedArr={flippedArr} flip={flip} />
           ))}
         </div>
       </div>
