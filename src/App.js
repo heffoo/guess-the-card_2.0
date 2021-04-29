@@ -74,7 +74,7 @@ function App() {
           steps={steps}
         />
         <div className="card-list">
-          {CARDS_LIST.map((card, index) => (
+          {newArray.map((card, index) => (
             <div
               key={index}
               className={
