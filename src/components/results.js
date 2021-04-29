@@ -20,7 +20,7 @@ export const Results = ({ setModal, modal, gamePeriod }) => {
           <button className="modal-button" onClick={counterStart}>
             блин
           </button>
-          <button className="modal-button">перезапустить</button>
+          <button className="modal-button" onClick={() => window.location.reload()}>перезапустить</button>
         </div>
       )}
     </div>
