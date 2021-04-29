@@ -7,9 +7,9 @@ function App() {
   const [flippedArr, setFlippedArr] = useState([]);
   const [guessedCards, setGuessedCards] = useState([]);
   const [newArray, setnewArray] = useState([]);
-  const [modal, setModal] = useState(true);
   const [gamePeriod, setGamePeriod] = useState("start");
-
+  const [endDate, setEndDate] = useState(0);
+  const [steps, setSteps] = useState(0);
   let lockBoard = false;
 
   useEffect(() => {
@@ -23,19 +23,24 @@ function App() {
 
   useEffect(() => {
     if (guessedCards.flat().length === 12) {
-      setModal(true);
       setGamePeriod("end");
+
+      let a = Date.now();
+      setEndDate(a);
     }
     return null;
   }, [guessedCards]);
 
   const flip = (index, name) => {
     if (lockBoard) return;
+    if(gamePeriod !== 'started') return;
+    setSteps(steps + 1);
     setFlippedArr((prevState) => [...prevState, { index: index, name: name }]);
   };
-  console.log(lockBoard);
+
   const checkDifference = () => {
     let c = flippedArr.filter((obj) => obj);
+
     c[0].name === c[1].name ? disableCards(c) : unFlip();
   };
 
@@ -58,14 +63,18 @@ function App() {
     checkDifference();
   }
 
-  // console.log(guessedCards);
-
   return (
     <div className="App">
       <div>
-        {modal && <Results guessedCards={guessedCards} setModal={setModal} modal={modal} gamePeriod={gamePeriod} />}
+        <Results
+          endDate={endDate}
+          guessedCards={guessedCards}
+          gamePeriod={gamePeriod}
+          setGamePeriod={setGamePeriod}
+          steps={steps}
+        />
         <div className="card-list">
-          {newArray.map((card, index) => (
+          {CARDS_LIST.map((card, index) => (
             <div
               key={index}
               className={
