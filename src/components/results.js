@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./modal.scss";
 
-export const Results = ({ gamePeriod, endDate, setGamePeriod, steps }) => {
+export const Results = ({ gamePeriod, endDate, setGamePeriod, steps, setGameType }) => {
   const [startDate, setStartDate] = useState(null);
 
   const counterStart = () => {
@@ -26,6 +26,10 @@ export const Results = ({ gamePeriod, endDate, setGamePeriod, steps }) => {
             <button className="modal-button" onClick={counterStart}>
               стартуем
             </button>
+            <div className="side-buttons">
+        <button className="side-buttons__butttons" onClick={()=> setGameType('3x4')}>3x4</button>
+        <button className="side-buttons__butttons" onClick={()=> setGameType('5x4')}>5x4</button>
+      </div>
           </div>
         </div>
       ) : gamePeriod === "end" ? (

@@ -7,11 +7,16 @@
 .card-list {
   perspective: 1000px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
-.main-block {
+
+.main-block_5x4 {
+  margin: 0 auto;
+  width: 65%;
+}
+
+.main-block_4x3 {
   margin: 0 auto;
   width: 50%;
 }
-
