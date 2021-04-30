@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/guess-the-card_2.0/static/css/main.524326ab.chunk.css",
-    "main.js": "/guess-the-card_2.0/static/js/main.f34469f5.chunk.js",
-    "main.js.map": "/guess-the-card_2.0/static/js/main.f34469f5.chunk.js.map",
+    "main.css": "/guess-the-card_2.0/static/css/main.7802be20.chunk.css",
+    "main.js": "/guess-the-card_2.0/static/js/main.60426279.chunk.js",
+    "main.js.map": "/guess-the-card_2.0/static/js/main.60426279.chunk.js.map",
     "runtime-main.js": "/guess-the-card_2.0/static/js/runtime-main.8a136c84.js",
     "runtime-main.js.map": "/guess-the-card_2.0/static/js/runtime-main.8a136c84.js.map",
     "static/js/2.1da2e6c9.chunk.js": "/guess-the-card_2.0/static/js/2.1da2e6c9.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.f9cb3ccc.chunk.js": "/guess-the-card_2.0/static/js/3.f9cb3ccc.chunk.js",
     "static/js/3.f9cb3ccc.chunk.js.map": "/guess-the-card_2.0/static/js/3.f9cb3ccc.chunk.js.map",
     "index.html": "/guess-the-card_2.0/index.html",
-    "static/css/main.524326ab.chunk.css.map": "/guess-the-card_2.0/static/css/main.524326ab.chunk.css.map",
+    "static/css/main.7802be20.chunk.css.map": "/guess-the-card_2.0/static/css/main.7802be20.chunk.css.map",
     "static/js/2.1da2e6c9.chunk.js.LICENSE.txt": "/guess-the-card_2.0/static/js/2.1da2e6c9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8a136c84.js",
     "static/js/2.1da2e6c9.chunk.js",
-    "static/css/main.524326ab.chunk.css",
-    "static/js/main.f34469f5.chunk.js"
+    "static/css/main.7802be20.chunk.css",
+    "static/js/main.60426279.chunk.js"
   ]
 }
