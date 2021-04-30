@@ -1,7 +1,6 @@
-import './card.scss'
+import "./card.scss";
 
-
-export const Card = ({card, index, flippedArr, guessedCards, flip}) => {
+export const Card = ({ card, index, flippedArr, guessedCards, flip, cardsType }) => {
   return (
     <div
       key={index}
@@ -13,7 +12,11 @@ export const Card = ({card, index, flippedArr, guessedCards, flip}) => {
       onClick={() => flip(index, card.id)}
     >
       <div className="back-face"></div>
-      <img className="front-face" alt="img" src={`http://placekitten.com/200/300?image=${card.img}`}></img>
+      {cardsType === "cats" ? (
+        <img className="front-face" alt="img" src={`http://placekitten.com/200/300?image=${card.img}`} />
+      ) : (
+        <div className={`front-face ${card.color}`}></div>
+      )}
     </div>
   );
 };

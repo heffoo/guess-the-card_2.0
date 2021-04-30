@@ -1,6 +1,6 @@
 import "./App.scss";
 import { CARDS_LIST } from "./components/cards-list";
-import { BIG_CARDS_LIST} from "./components/cards-list_5x4";
+import { BIG_CARDS_LIST } from "./components/cards-list_5x4";
 import { useEffect, useState } from "react";
 import { Results } from "./components/results";
 import { Card } from "./components/card/card";
@@ -12,13 +12,13 @@ function App() {
   const [gamePeriod, setGamePeriod] = useState("start");
   const [endDate, setEndDate] = useState(0);
   const [steps, setSteps] = useState(0);
-  const [gameType, setGameType] = useState('3x4');
+  const [gameType, setGameType] = useState("3x4");
+  const [cardsType, setCardsType] = useState("cats");
 
   let lockBoard = false;
 
-
   useEffect(() => {
-    let arr = gameType === '3x4' ? CARDS_LIST : BIG_CARDS_LIST;
+    let arr = gameType === "3x4" ? CARDS_LIST : BIG_CARDS_LIST;
     var copy = [].concat(arr);
     setNewArray(
       copy.sort(function () {
@@ -28,7 +28,10 @@ function App() {
   }, [gameType]);
 
   useEffect(() => {
-    if (gameType === '3x4' && guessedCards.flat().length === 12 || gameType === '5x4' && guessedCards.flat().length === 20) {
+    if (
+      (gameType === "3x4" && guessedCards.flat().length === 12) ||
+      (gameType === "5x4" && guessedCards.flat().length === 20)
+    ) {
       setGamePeriod("end");
 
       let a = Date.now();
@@ -68,10 +71,11 @@ function App() {
 
     checkDifference();
   }
-  
+
   return (
     <div className="App">
-      <div className={gameType === '3x4' ? 'main-block_4x3' : 'main-block_5x4'}>
+      <span className="version">1.0.1</span>
+      <div className={gameType === "3x4" ? "main-block_4x3" : "main-block_5x4"}>
         <Results
           endDate={endDate}
           guessedCards={guessedCards}
@@ -79,14 +83,24 @@ function App() {
           setGamePeriod={setGamePeriod}
           steps={steps}
           setGameType={setGameType}
+          setCardsType={setCardsType}
+          gameType={gameType}
+          cardsType={cardsType}
         />
         <div className="card-list">
           {newArray.map((card, index) => (
-            <Card key={index} card={card} index={index} guessedCards={guessedCards} flippedArr={flippedArr} flip={flip} />
+            <Card
+              key={index}
+              cardsType={cardsType}
+              card={card}
+              index={index}
+              guessedCards={guessedCards}
+              flippedArr={flippedArr}
+              flip={flip}
+            />
           ))}
         </div>
       </div>
-     
     </div>
   );
 }
